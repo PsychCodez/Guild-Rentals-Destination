@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="logo5-removebg-preview.png">
+    <title>Guilds,Rentals,Destination</title>
+    <link rel="stylesheet" href="guilds.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Source+Code+Pro&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="logo6-removebg-preview.png" width="70" />
+        <nav class="navigation">
+            <a href="MRD_final.html">Home</a>
+            <a href="Rentals.html">Rentals</a>
+            <a href="alt2_map.html">Trips</a>
+            <a href="guilds.html">Guilds</a>
+            <a href="FAQ_demo.html">FAQ's</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <div class="guilds-container">
+        <div class="guild guild1">
+            <img src="guild1.jpg" alt="Guild 1 Logo" />
+            <div class="guild-info">
+                <h2><b>Thunder Rider Brotherhood</b></h2>
+                <p>
+                    The Thunder Riders Brotherhood is a tight-knit motorcycle community that prides itself on camaraderie and a shared love for the open road. This community comprises riders from all walks of life, bound together by their passion for the thunderous rumble of their bikes. The Brotherhood organizes an annual road trip known as "The Thunder Run.".
+                </p>
+               <button class="join-btn" onclick="joinGuild('Guild1')">Join Now</button>
+
+                <div id="members-container"></div>
+            </div>
+        </div>
+
+        <div class="guild guild2">
+            <img src="guild2.png" alt="Guild 2 Logo" />
+            <div class="guild-info">
+                <h2><b>Urban Explorers Alliance</b></h2>
+                <p>
+                    The Urban Explorers Alliance is a unique bike community that thrives on the thrill of exploring urban landscapes on two wheels. Comprising riders with a penchant for cityscape adventures, this community organizes an annual event called "Concrete Jungle Expedition." During this road trip, members navigate the bustling streets of major cities, uncovering hidden gems, street art, and iconic landmarks. 
+                </p>
+		<!-- Inside the guild info div -->
+                <button class="join-btn" onclick="joinGuild('Guild2')">Join Now</button>
+
+		<div id="members-container"></div>
+            </div>
+        </div>
+
+        <div class="guild guild3">
+            <img src="guild3.png" alt="Guild 3 Logo" />
+            <div class="guild-info">
+                <h2><b>Wilderness Nomad Society</b></h2>
+                <p>
+                    The Wilderness Nomads Society is a community of adventurers who find solace in the untouched beauty of nature. Their annual road trip, known as "The Backcountry Odyssey," is a testament to their commitment to exploring the wilderness. 
+                </p>
+                <button class="join-btn" onclick="joinGuild('Guild3')">Join Now</button>
+
+		<div id="members-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="footer-text-left">@GuildsRentalsDestination, Few rights reserved.</p>
+    </div>
+
+  <script src="script.js"></script>
+
+    <script src="guild_page.js" defer></script>
+</body>
+</html>

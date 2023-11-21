@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="logo5-removebg-preview.png" >
+    <title>Guilds, Rentals, Destination</title>
+    <link rel="stylesheet" href="alt2_map.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <header>
+        <img src="logo6-removebg-preview.png" width="70" />
+        <nav class="navigation">
+          <a href="MRD_final.html">Home</a>
+          <a href="Rentals.html">Rentals</a>
+          <a href="alt_map.html">Trips</a>
+          <a href="guilds.html">Guilds</a>
+          <a href="FAQ_demo.html">FAQ's</a>
+          <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <!-- Add content for Trips page -->
+    <div class="Trips-container">
+        <h2 class="trips-heading">Trending Trips</h2>
+  
+        <div class="Trips-buttons">
+          <button onclick="showMap(34.083670, 77.582176, 32.726601, 77.585270)">Leh-Manali</button>
+          <button onclick="showMap(31.104153, 77.169934, 32.269377, 77.269232)">Shimla-Spiti Valley</button>
+          <button onclick="showMap(33.742412, 76.234428, 34.152586, 77.569596)">Leh-Zanskar Valley</button>
+        </div>
+  
+        <div id="map-container" class="Trips-map-container">
+          <!-- Map will be displayed here -->
+        </div>
+      </div>
+  
+      <div class="footer">
+        <!-- Footer content from the main file -->
+      </div>
+  
+      <script>
+  function showMap(originLat, originLng, destinationLat, destinationLng) {
+    console.log('Origin Coordinates:', originLat, originLng);
+    console.log('Destination Coordinates:', destinationLat, destinationLng);
+
+    const map = L.map('map-container').setView([28.6139, 77.2090], 7);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+    }).addTo(map);
+
+    const apiKey = '5b3ce3597851110001cf62487d7db865e9ec44568a12098c15fb5e1d';
+    const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&coordinates=${originLng},${originLat}|${destinationLng},${destinationLat}`;
+
+    console.log('API Request URL:', url);
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('API Response:', data);
+
+        if (data.features && data.features.length > 0) {
+          const route = L.geoJSON(data.features[0].geometry, {
+            style: { color: 'blue', weight: 5 },
+          }).addTo(map);
+
+          map.fitBounds(route.getBounds());
+        } else {
+          console.error('No features found in the response data.');
+        }
+      })
+      .catch((error) => console.error('Error fetching directions:', error));
+  }
+    </script>
+  </body>
+</html>

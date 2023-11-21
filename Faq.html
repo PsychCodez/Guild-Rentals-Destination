@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="logo5-removebg-preview.png" />
+  <title>Guilds, Rentals, Destination</title>
+  <!-- Link to your external CSS file -->
+  <link rel="stylesheet" href="MRD_final.css" />
+</head>
+<body>
+  <div id="faq-root"></div>
+
+ 
+  </script>
+
+  <!-- Include the script for the FAQ page -->
+  <script type="module">
+    const { useState } = React;
+
+    const FAQPage = () => {
+      const [questions, setQuestions] = useState([
+        { id: 1, question: 'Question 1', answer: 'Answer 1' },
+        { id: 2, question: 'Question 2', answer: 'Answer 2' },
+        // Add more questions as needed
+      ]);
+
+      return (
+        <div>
+          <div className="elementor-widget-container">
+            <h1 className="elementor-heading-title elementor-size-default">Frequently Asked Questions</h1>
+          </div>
+          <div className="faq-container">
+            {questions.map((q) => (
+              <div key={q.id} className="faq-item">
+                <h3>{q.question}</h3>
+                <p>{q.answer}</p>
+              </div>
+            ))}
+          </div>
+          <div className="footer">
+            <p className="footer-text-left">@GuildsRentalsDestination, Few rights reserved.</p>
+          </div>
+        </div>
+      );
+    };
+
+    // Render the FAQPage component to the "faq-root" div
+    ReactDOM.render(<FAQPage />, document.getElementById("faq-root"));
+  </script>
+</body>
+</html>

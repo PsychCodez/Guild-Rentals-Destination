@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="logo5-removebg-preview.png" />
+  <title>Guilds, Rentals, Destination</title>
+  <!-- Link to your external CSS file -->
+  <link rel="stylesheet" href="MRD_final.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="module">
+    const { useState } = React;
+
+    const App = () => {
+      const [isPopupActive, setPopupActive] = useState(false);
+
+      const handleTogglePopup = () => {
+        setPopupActive(!isPopupActive);
+      };
+
+      return (
+        <div>
+          <header>
+            <img src="logo6-removebg-preview.png" width="70" />
+<nav className="navigation">
+  <a href="MRD_final.html">Home</a>
+  <a href="Rentals.html">Rentals</a>
+  <a href="alt2_map.html">Trips</a>
+  <a href="guilds.html">Guilds</a>
+  <a href="FAQ_demo.html">FAQ's</a>
+  <button className="btnLogin-popup" onClick={handleTogglePopup}>Login</button>
+</nav>
+            
+          </header>
+          <div className="elementor-widget-container">
+            <h1 className="elementor-heading-title elementor-size-default">Join the Ultimate Biking Experience</h1>
+          </div>
+          <div className={`wrapper ${isPopupActive ? 'active-popup' : ''}`}>
+            <div className="form-box login">
+              <h2>{isPopupActive ? 'Login' : 'Register'}</h2>
+              <form action={isPopupActive ? 'http://localhost:5000/login' : 'http://localhost:5000/register'} method="post">
+                {/* ... (login/register form fields) */}
+                <button type="submit" className="btn">{isPopupActive ? 'Login' : 'Register'}</button>
+                <div className="login_register">
+                  <p>
+                    {isPopupActive ? "Don't have an account?" : "Already have an account?"}
+                    <a href="#" onClick={(e) => { e.preventDefault(); setPopupActive(!isPopupActive); }}>
+                      {isPopupActive ? ' Register ' : ' Login '}
+                    </a>
+                  </p>
+                </div>
+              </form>
+            </div>
+            <div className="icon-close" onClick={handleTogglePopup}>
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+          </div>
+          <div className="footer">
+            <p className="footer-text-left">@GuildsRentalsDestination, Few rights reserved.</p>
+          </div>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+  
+</body>
+</html>

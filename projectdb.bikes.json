@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "6552fd459c8e11111ccdc6b2"
+  },
+  "name": "Royal_Enfield_Himalayan",
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6552fd459c8e11111ccdc6b3"
+  },
+  "name": "Yezdi_Adventure",
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6552fd459c8e11111ccdc6b4"
+  },
+  "name": "BMW_G_310_GS",
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6552fdf49c8e11111ccdc6b5"
+  },
+  "name": "BMW_1250GS_Adventure",
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6552fdf49c8e11111ccdc6b6"
+  },
+  "name": "Triumph_Tiger",
+  "quantity": 0
+},
+{
+  "_id": {
+    "$oid": "6552fdf49c8e11111ccdc6b7"
+  },
+  "name": "Hero_Xpulse_200_4v",
+  "quantity": 0
+}]

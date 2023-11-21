@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="logo5-removebg-preview.png" >
+    <link rel="stylesheet" href="FAQ.css">
+    <title>Guild,Rentals,Destination</title>
+    <style>
+        /* Basic styles for the FAQ */
+        .faq {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .question {
+            color:#fff;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px 0;
+            padding: 5px;
+            border: none;
+            background-color:transparent;
+        }
+
+        .answer {
+            color:#fff;
+            display: none;
+            padding: 10px;
+            border: none;
+            background-color: transparent;
+            animation: fadeIn 0.5s;
+        }
+
+        /* Cool transition effect */
+        .answer.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo6-removebg-preview.png" width="70" />
+        <nav class="navigation">
+          <a href="MRD_final.html">Home</a>
+          <a href="Rentals.html">Rentals</a>
+          <a href="Trips.html">Trips</a>
+          <a href="guilds.html">Guilds</a>
+          <a href="FAQ_demo.html">FAQ's</a>
+          <button class="btnLogin-popup" onclick="closeFAQ()">Login</button>
+        </nav>
+      </header>
+      <div class="box">
+    <div class="faq">
+        <div class="question" onclick="toggleAnswer(1)">How do I rent a bike?</div>
+        <div class="answer" id="answer1">
+            To rent a bike, you can visit our website and select your preferred bike model and rental duration. Then, proceed to the checkout and make your payment online.
+        </div>
+
+        <div class="question" onclick="toggleAnswer(2)">What are the rental rates?</div>
+        <div class="answer" id="answer2">
+            Our rental rates vary depending on the type of bike and the duration of your rental. You can find detailed pricing information on our website or by contacting our customer support.
+        </div>
+
+        <div class="question" onclick="toggleAnswer(3)">Do you provide helmets and safety gear?</div>
+        <div class="answer" id="answer3">
+            Yes, we offer helmets and other safety gear as an optional add-on. You can select these items during the booking process.
+        </div>
+    </div>
+    </div>
+    <div id="wrapper" class="wrapper">
+        <span class="icon-close">
+          <ion-icon name="close-outline"></ion-icon>
+        </span>
+        <div class="form-box login">
+          <h2>Login</h2>
+          <form action="#">
+            <div class="input-box">
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <input type="text" required />
+              <label>Username/Email</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <input type="password" minlength="8" required />
+              <label>Password</label>
+            </div>
+            <div class="remember-forgot">
+              <label><input type="checkbox" />Remember me</label>
+              <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="login_register">
+              <p>
+                Don't have an account?
+                <a href="#"> Register </a>
+              </p>
+            </div>
+          </form>
+        </div>
+  
+        <div class="form-box register">
+          <h2>Registeration</h2>
+          <form action="#">
+            <div class="input-box">
+              <span class="icon"><ion-icon name="person"></ion-icon></span>
+              <input type="test" required />
+              <label>Username</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <input type="text" required />
+              <label>Email</label>
+            </div>
+            <div class="input-box">
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <input type="password" minlength="8" required />
+              <label>Password</label>
+            </div>
+            <div class="remember-forgot">
+              <label
+                ><input type="checkbox" /> I agree to the terms &
+                conditions</label
+              >
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="login_register">
+              <p>
+                Already have an account?
+                <a href="#"> Login </a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      ></script>
+
+    <script src="FAQ.js"></script>
+    <div class="footer">
+      <p class="footer-text-left" >@GuildsRentalsDestination, Few rights reserved.</p>
+    </div>
+</body>
+</html>

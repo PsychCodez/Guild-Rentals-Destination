@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="logo5-removebg-preview.png" >
+    <title>Guilds,Rentals,Destination</title>
+    <link rel="stylesheet" href="MRD_final.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Source+Code+Pro&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+<img src="logo6-removebg-preview.png" width="70" />
+      <nav class="navigation">
+        <a href="MRD_final.html">Home</a>
+        <a href="Rentals.html">Rentals</a>
+        <a href="alt2_map.html">Trips</a>
+        <a href="guilds.html">Guilds</a>
+        <a href="FAQ_demo.html">FAQ's</a>
+        <button class="btnLogin-popup">Login</button>
+      </nav>
+    </header>
+    <div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Join the Ultimate Biking Experience</h1>		</div>
+      <div class="About1" data-id="7e7c6a4" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+                  Welcome to our motorcycle haven, where the open road beckons and the thrill of two wheels is more than just a journey—it's a way of life. At our motorcycle rental hub, we're dedicated to providing you not just with bikes but with the key to unlocking the freedom of the asphalt. Whether you're a seasoned rider or a newcomer eager to embrace the wind, our fleet of well-maintained motorcycles stands ready for your adventure. But we're more than just a rental service; we're a community of riders united by the love of the ride. Join our motorcycle guilds to connect with fellow enthusiasts, swap tips, and plan exhilarating group rides. And for those who crave the simplicity of the open road, our motorcycle trips offer curated routes, turning your journey into an unforgettable experience. With us, it's not just about the destination—it's about the winding roads, the shared stories, and the unbridled joy of exploration. So, gear up and ride with us as we navigate beyond maps, embracing the pure essence of the road.</div>
+						</div></div>
+    <div class="wrapper">
+      <span class="icon-close">
+        <ion-icon name="close-outline"></ion-icon>
+      </span>
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form action="http://localhost:5000/login" method="post">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="text" required />
+            <label>Username/Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" minlength="8" required />
+            <label>Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label><input type="checkbox" />Remember me</label>
+            <a href="#">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <div class="login_register">
+            <p>
+              Don't have an account?
+              <a href="#"> Register </a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-box register">
+        <h2>Registeration</h2>
+        <form action="http://localhost:5000/register" method="post">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input type="test" required />
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="text" required />
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" minlength="8" required />
+            <label>Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label
+              ><input type="checkbox" /> I agree to the terms &
+              conditions</label
+            >
+          </div>
+          <button type="submit" class="btn">Register</button>
+          <div class="login_register">
+            <p>
+              Already have an account?
+              <a href="#"> Login </a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="MRD_final.js" defer></script>
+    <script src="LoginRegister.js" defer></script>
+    <div class="footer">
+      <p class="footer-text-left" >@GuildsRentalsDestination, Few rights reserved.</p>
+    </div>
+  </body>
+</html>

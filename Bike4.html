@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="logo5-removebg-preview.png" />
+    <title>Bike Details</title>
+    <link rel="stylesheet" href="Bike1.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Source+Code+Pro&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <style>
+        .Himalayan {
+            color: red;
+            position: absolute;
+            left: 300px;
+            top: 580px;   
+        }
+        .preHimalayan {
+            color: red;
+            position: absolute;
+            left: 180px;
+            top: 580px;   
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo6-removebg-preview.png" width="70" />
+        <nav class="navigation">
+            <a href="MRD_final.html">Home</a>
+            <a href="Rentals.html">Rentals</a>
+            <a href="alt2_map.html">Trips</a>
+            <a href="guilds.html">Guilds</a>
+            <a href="FAQ_demo.html">FAQ's</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <div class="bike-details-container">
+        <img class="bike-details-image" src="Bike44.png" alt="BMW 1250GS Adventure" />
+        <div class="preHimalayan">Bikes left:</div>
+        <div id="data-container", class="Himalayan"></div>
+
+        <div class="bike-details-info">
+            <h2>BMW 1250GS Adventure</h2>
+            <p><strong>Details:</strong><br>Powerful Engine: The R 1250 GS Adventure boasts a powerful and torquey engine, providing ample power for both highway cruising and off-road adventures.<br>
+                <br>Advanced Electronics: It comes equipped with advanced electronics and rider aids, including electronic suspension adjustment, traction control, and multiple riding modes.<br>
+                <br>Long-Distance Touring Capability: Designed for long-distance touring, the R 1250 GS Adventure offers a comfortable riding position and a range of features to enhance the touring experience.<br></p>
+                <br>CAPACITY: 1254cc<br>
+                MAX POWER: 136Ps<br>
+                MAX TORQUE: 143Nm<br>
+                WHEELBASE: 1510mm<br>
+                COMPRESSION RATIO: 12.5:1<br>
+                BORE STROKE: 102.5 x 76 mm<br>
+            <p><strong>Price:</strong> $50 per day</p>
+            <h1>Book Bike</h1>
+            <form id="updateForm">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+                <!-- Pass the bike ID you want to update in the onclick function -->
+                <button class="button" onclick="subtractQuantity()">BOOK BIKE</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="footer-text-left">@GuildsRentalsDestination, Few rights reserved.</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchData();
+        });
+    
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:3000/bikes/6552fdf49c8e11111ccdc6b5');
+                const data = await response.json();
+    
+                const dataContainer = document.getElementById('data-container');
+                dataContainer.innerHTML = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+    
+        async function subtractQuantity() {
+            const quantityToSubtract = document.getElementById('quantity').value;
+    
+            try {
+                const response = await fetch('http://localhost:3000/bikes/6552fdf49c8e11111ccdc6b5/subtractQuantity', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ quantity: quantityToSubtract }),
+                });
+    
+                const result = await response.json();
+    
+                if (result.success) {
+                    fetchData(); // Refresh the data after subtraction
+                    alert('Booking Successful! Pick-Up details are mentioned in the PDF being downloaded.');
+    
+                    // Generate and download the PDF file
+                    generateAndDownloadPDF();
+                } else {
+                    if (result.error === 'Insufficient Quantity') {
+                        alert('Booking failed! The entered quantity exceeds the available stock.');
+                    } else if (result.error === 'Invalid Quantity') {
+                        alert('Booking failed! Please enter a valid quantity.');
+                    } else {
+                        console.error('Failed to subtract quantity:', result.error);
+                    }
+                }
+            } catch (error) {
+                console.error('Error subtracting quantity:', error);
+            }
+        }
+    
+        function generateAndDownloadPDF() {
+            const pdfGenerationUrl = 'http://localhost:9000/generate-pdf';
+            const downloadLink = document.createElement('a');
+            downloadLink.href = pdfGenerationUrl; // Set the URL to the server endpoint for PDF generation
+            downloadLink.download = 'pickup_details.pdf'; // Set the desired file name for the downloaded PDF
+            downloadLink.click(); // Simulate a click to trigger the download
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="logo5-removebg-preview.png">
+    <title>Bike Details</title>
+    <link rel="stylesheet" href="Bike1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&amp;family=Source+Code+Pro&amp;family=Ubuntu:wght@500&amp;display=swap" rel="stylesheet">
+
+    <style>
+        .Himalayan {
+            color: red;
+            position: absolute;
+            left: 300px;
+            top: 580px;   
+        }
+        .preHimalayan {
+            color: red;
+            position: absolute;
+            left: 180px;
+            top: 580px;   
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo6-removebg-preview.png" width="70">
+        <nav class="navigation">
+            <a href="MRD_final.html">Home</a>
+            <a href="Rentals.html">Rentals</a>
+            <a href="alt2_map.html">Trips</a>
+            <a href="guilds.html">Guilds</a>
+            <a href="FAQ_demo.html">FAQ's</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <div class="bike-details-container">
+        <img class="bike-details-image" src="Bike11.png" alt="RoyalEnfield Himalayan">
+        <div class="preHimalayan"> Bikes left:</div>
+        <div id="data-container", class="Himalayan"></div>
+
+        <div class="bike-details-info">
+            <h2>RoyalEnfield Himalayan</h2>
+            <p><strong>Details: <br><br></strong> ADVENTURE-READY HANDLING<br>
+                The half-duplex split cradle frame and long travel suspension keep you in harmony with road, rocks, and everything in between.
+            <br><br>VERSATILE PERFORMANCE<br>
+            800mm seat height, perfectly positioned footpegs and handlebars reduce fatigue and give you a comfortable upright riding position whether you sit or stand.</p>
+            <br>CAPACITY: 411cc<br>
+            MAX POWER: 24.31Ps<br>
+            MAX TORQUE: 32Nm<br>
+            WHEELBASE: 1465mm<br>
+            COMPRESSION RATIO: 9.5:1<br>
+            BORE STROKE: 78 x 86mm<br>
+            <br><p><strong>Price:</strong> Rs63.75 per hour</p><br>
+            <h1>Book Bike</h1>
+            <form id="updateForm">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+                <!-- Pass the bike ID you want to update in the onclick function -->
+                <button class="button" onclick="subtractQuantity()">BOOK BIKE</button>
+            </form>
+            
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    fetchData();
+                });
+            
+                async function fetchData() {
+                    try {
+                        const response = await fetch('http://localhost:3000/bikes/6552fd459c8e11111ccdc6b2');
+                        const data = await response.json();
+            
+                        const dataContainer = document.getElementById('data-container');
+                        dataContainer.innerHTML = JSON.stringify(data, null, 2);
+                    } catch (error) {
+                        console.error('Error fetching data:', error);
+                    }
+                }
+            
+                async function subtractQuantity() {
+                    const quantityToSubtract = document.getElementById('quantity').value;
+            
+                    try {
+                        const response = await fetch('http://localhost:3000/bikes/6552fd459c8e11111ccdc6b2/subtractQuantity', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ quantity: quantityToSubtract }),
+                        });
+            
+                        const result = await response.json();
+            
+                        if (result.success) {
+                            fetchData(); // Refresh the data after subtraction
+                            alert('Booking Successful! Pick-Up details are mentioned in the PDF being downloaded.');
+            
+                            // Generate and download the PDF file
+                            generateAndDownloadPDF();
+                        } else {
+                            if (result.error === 'Insufficient Quantity') {
+                                alert('Booking failed! The entered quantity exceeds the available stock.');
+                            } else if (result.error === 'Invalid Quantity') {
+                                alert('Booking failed! Please enter a valid quantity.');
+                            } else {
+                                console.error('Failed to subtract quantity:', result.error);
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error subtracting quantity:', error);
+                    }
+                }
+            
+                function generateAndDownloadPDF() {
+                    const pdfGenerationUrl = 'http://localhost:9000/generate-pdf';
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = pdfGenerationUrl; // Set the URL to the server endpoint for PDF generation
+                    downloadLink.download = 'pickup_details.pdf'; // Set the desired file name for the downloaded PDF
+                    downloadLink.click(); // Simulate a click to trigger the download
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

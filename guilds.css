@@ -1,0 +1,272 @@
+/* Apply global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Code Pro', monospace;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("Background3.jpg") no-repeat; 
+    background-size: cover;
+    background-position: right;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2em;
+    color: white;
+    user-select: none;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation a {
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid whitesmoke;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: white;
+    color: #210011;
+}
+
+.guilds-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+/* Styles for Guild 1 */
+.guild.guild1 {
+    height:400px;
+    margin: 80px;
+    padding: 30px;
+    background-color: transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    text-align: left;
+    backdrop-filter: blur(5px);
+    border: 2px solid gray;
+    border-radius: 20px;
+    width: 75%;
+
+}
+
+.guild.guild1 img {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    margin-right: 100px;
+    margin-left:150px;
+    margin-top: 30px;
+}
+
+.guild.guild1 .guild-info {
+    flex: 1;
+}
+
+.guild.guild1 h2 {
+    font-size: 1.5em;
+    color: white;
+    margin-top: 180px;
+    margin-left: 200px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.guild.guild1 p {
+    font-size: 1em;
+    color: white;
+    margin-top: 30px;
+    margin-left: 200px;
+    margin-right: 50px;
+}
+.guild .join-btn {
+    margin-top: 25px; /* Adjust as needed */
+    margin-left: 200px; /* Move the button to the right */
+    display: block; /* Make the button a block element */
+}
+
+/* Styles for Guild 2 */
+.guild.guild2 {
+    height:400px;
+    margin: 80px;
+    padding: 30px;
+    background-color: transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    text-align: left;
+    backdrop-filter: blur(5px);
+    border: 2px solid gray;
+    border-radius: 20px;
+    width: 75%;
+}
+
+.guild.guild2 img {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    margin-right: 100px;
+    margin-left:150px;
+    margin-top: 30px;
+}
+
+.guild.guild2 .guild-info {
+    flex: 1;
+}
+
+.guild.guild2 h2 {
+    font-size: 1.5em;
+    color: white;
+    margin-top: 200px;
+    margin-left: 200px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.guild.guild2 p {
+    font-size: 1em;
+    color: white;
+    margin-top: 30px;
+    margin-left: 200px;
+    margin-right: 50px;
+}
+
+/* Styles for Guild 3 */
+.guild.guild3 {
+    height:400px;
+    margin: 80px;
+    padding: 30px;
+    background-color: transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    text-align: left;
+    backdrop-filter: blur(5px);
+    border: 2px solid gray;
+    border-radius: 20px;
+    width: 75%;
+}
+
+.guild.guild3 img {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    margin-right: 100px;
+    margin-left:150px;
+    margin-top: 30px;
+}
+
+.guild.guild3 .guild-info {
+    flex: 1;
+}
+
+.guild.guild3 h2 {
+    font-size: 1.5em;
+    color: white;
+    margin-top: 150px;
+    margin-left: 200px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.guild.guild3 p {
+   font-size: 1em;
+    color: white;
+    margin-top: 30px;
+    margin-left: 200px;
+    margin-right: 50px;
+}
+
+.footer {
+    position: fixed;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+}
+
+.footer-text-left {
+    font-size: 15px;
+    color: white;
+    padding-left: 10px;
+    float: left;
+    word-spacing: 0px;
+}
+
+.guild-info{
+    margin-bottom: 150px;
+}
+
+.join-btn{
+
+ width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid whitesmoke;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    margin-left: 0px;
+    transition: .5s;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.join-btn:hover{
+    background: white;
+    color: #210011;
+}
